@@ -5,7 +5,6 @@ import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import Main from "./components/main";
 import {Box} from "@mui/material";
-import PopoverChat from "./components/PopoverChat";
 import {createTheme} from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import {Open_Sans} from "next/font/google";
@@ -48,7 +47,6 @@ export default function Home() {
                 <Navbar scrolling={scrolling} />
                 <Main />
                 <Footer />
-                <PopoverChat />
             </Box>
         </ThemeConfig>
     );

@@ -1,5 +1,5 @@
 export const metadata = {
-    title: "Ramiro Fraysse",
+    title: "UVI",
     description: "Portfolio builded on NextJS",
 };
 

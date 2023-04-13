@@ -11,22 +11,42 @@ function Footer() {
                 marginTop: "32px",
                 padding: "16px",
                 background:
-                    "radial-gradient(circle at 50% 50%, #667eea, #764ba2)!important",
+                    "radial-gradient(circle at 50% 50%, #bd72fd, #764ba2)",
             }}
         >
             <Toolbar sx={{display: "flex", justifyContent: "space-around"}}>
                 <Box>
-                    <Typography variant="body1" color="inherit">
-                        RF
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width={28}
+                        height={28}
+                    >
+                        <image
+                            href={"/icons/logo.png"}
+                            width={28}
+                            height={28}
+                        />
+                    </svg>
+                    <Typography variant="subtitle2" color="white">
+                        ©2023 Uvi
                     </Typography>
-                </Box>
-                <Box>
                     <Link
-                        href="mailto:ramirofraysse@gmail.com"
+                        href="https://ramirofraysse.vercel.app/"
                         target="_blank"
                         style={{color: "#ffff", textDecoration: "none"}}
                     >
-                        ramirofraysse@gmail.com
+                        <Typography variant="subtitle2" color="white">
+                            Design and development by Ramiro Fraysse
+                        </Typography>
+                    </Link>
+                </Box>
+                <Box>
+                    <Link
+                        href="mailto:info@uvi.com.ar"
+                        target="_blank"
+                        style={{color: "#ffff", textDecoration: "none"}}
+                    >
+                        info@uvi.com.ar
                     </Link>
                     <Box
                         sx={{
@@ -57,14 +77,6 @@ function Footer() {
                             </Link>
                         ))}
                     </Box>
-                    <Link
-                        href="/docs/cv.pdf"
-                        target="_blank"
-                        download
-                        style={{color: "#ffff", textDecoration: "none"}}
-                    >
-                        Descargar CV
-                    </Link>
                 </Box>
             </Toolbar>
         </AppBar>

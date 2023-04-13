@@ -1,5 +1,5 @@
 import {Box, CircularProgress, Card, CardContent} from "@mui/material";
-import {Button, Typography, TextField} from "@mui/material";
+import {Button, TextField} from "@mui/material";
 import {styled} from "@mui/material/styles";
 import emailjs from "@emailjs/browser";
 import {useLanguage} from "../../store/language";
@@ -50,7 +50,6 @@ function SectionContact() {
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         const serviceId = process.env.NEXT_PUBLIC_SERVICEID_EMAILJS;
-        console.log({serviceId});
         const templateId = process.env.NEXT_PUBLIC_TEMPLATEID_EMAILJS;
         const API_KEY = process.env.NEXT_PUBLIC_APIKEY_EMAILJS;
         setIsLoading(true);
@@ -86,7 +85,7 @@ function SectionContact() {
                 margin: "auto",
                 borderRadius: "16px",
                 boxShadow: "0 0 10px 5px rgb(118,75,162,0.5)",
-                background: theme === "dark" ? "#667eea" : undefined,
+                background: theme === "dark" ? "#bd72fd" : undefined,
             }}
         >
             <CardContent>
@@ -154,7 +153,7 @@ function SectionContact() {
                         type="submit"
                         sx={{
                             minWidth: "150px",
-                            background: "#764ba2",
+                            background: "#470083",
                             color: "white",
                             // "radial-gradient(circle at 50% 50%, #667eea, #764ba2)!important",
                         }}

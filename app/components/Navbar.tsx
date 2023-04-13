@@ -14,7 +14,6 @@ import {
     ListItemText,
     Toolbar,
     IconButton,
-    Typography,
     Button,
 } from "@mui/material";
 
@@ -50,32 +49,36 @@ interface NavItemsProps {
 const navItems: NavItemsProps[] = [
     {
         text: {
+            sp: "Servicios",
+            en: "Services",
+        },
+        key: "Services",
+    },
+    {
+        text: {
+            sp: "Recomendaciones",
+            en: "Recommendations",
+        },
+        key: "Recommendations",
+    },
+
+    {
+        text: {
+            sp: "Planes",
+            en: "Plans",
+        },
+        key: "Plans",
+    },
+
+    {
+        text: {
             sp: "Contacto",
             en: "Contact",
         },
         key: "Contact",
     },
-    {
-        text: {
-            sp: "Educacion",
-            en: "Education",
-        },
-        key: "Education",
-    },
-
-    {
-        text: {
-            sp: "Experiencia",
-            en: "Experience",
-        },
-        key: "Experience",
-    },
 ];
 const navItemsActions: NavItemsProps[] = [
-    {
-        text: {sp: "CV", en: "CV"},
-        key: "cvAction",
-    },
     {
         text: {sp: "INGLÉS", en: "SPANISH"},
         key: "lanAction",
@@ -97,7 +100,6 @@ export default function Navbar(props: Props) {
     const {theme, language, toggleLanguage, toggleTheme} = useLanguage(
         state => state,
     );
-    console.log({language});
 
     const handleClickAction = (key: string) => {
         switch (key) {
@@ -113,15 +115,11 @@ export default function Navbar(props: Props) {
     };
 
     const handleClickNavItem = (key: string) => {
-        console.log({key});
         const targetSection = document.getElementById(key);
-        console.log({targetSection});
         if (targetSection !== null) {
-            console.log("entra aca");
             targetSection.scrollIntoView({
                 behavior: "smooth",
             });
-            console.log("esto no funciona");
         }
     };
 
@@ -136,12 +134,12 @@ export default function Navbar(props: Props) {
                 textAlign: "center",
                 height: "100vh",
                 background:
-                    "linear-gradient(to bottom right, #667eea, #764ba2)!important",
+                    "linear-gradient(to bottom right, #bd72fd, #3d235a)!important",
             }}
         >
-            <Typography variant="h6" sx={{my: 2, color: "#ffff"}}>
-                RF
-            </Typography>
+            <svg xmlns="http://www.w3.org/2000/svg" width={28} height={28}>
+                <image href={"/icons/logo.png"} width={28} height={28} />
+            </svg>
             <Divider />
             <List sx={{display: "flex", flexDirection: "column"}}>
                 {navItems.map(item => (
@@ -169,7 +167,6 @@ export default function Navbar(props: Props) {
                         <ListItemButton
                             sx={{textAlign: "center"}}
                             onClick={() => {
-                                console.log("click");
                                 handleClickAction(action.key);
                             }}
                         >
@@ -223,8 +220,8 @@ export default function Navbar(props: Props) {
                 background: scrolling
                     ? theme === "dark"
                         ? "#121212"
-                        : "radial-gradient(circle at 50% 50%, #667eea, #764ba2)"
-                    : "radial-gradient(circle at 50% 50%, #667eea, #764ba2)",
+                        : "radial-gradient(circle at 50% 50%, #bd72fd, #764ba2)"
+                    : "radial-gradient(circle at 50% 50%, #bd72fd, #3d235a)",
                 paddingBottom: "70px",
                 transition: "background ease 2s",
             }}
@@ -236,7 +233,7 @@ export default function Navbar(props: Props) {
                     paddingRight: {xs: "0px", sm: "0px", md: "100px"},
                     paddingLeft: {xs: "0px", sm: "0px", md: "100px"},
                     background: scrolling
-                        ? "radial-gradient(circle at 50% 50%, #667eea, #764ba2)"
+                        ? "radial-gradient(circle at 50% 50%, #bd72fd, #3d235a)"
                         : "none",
                     boxShadow: scrolling ? undefined : "none",
                     border: scrolling ? undefined : "none",
@@ -271,7 +268,17 @@ export default function Navbar(props: Props) {
                             width: {md: "300px"},
                         }}
                     >
-                        RF
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width={45}
+                            height={45}
+                        >
+                            <image
+                                href={"/icons/logo.png"}
+                                width={45}
+                                height={45}
+                            />
+                        </svg>
                     </Button>
                     <Box
                         sx={{margin: "auto", display: {xs: "none", sm: "flex"}}}
@@ -281,7 +288,6 @@ export default function Navbar(props: Props) {
                                 key={item.key}
                                 sx={{color: "#fff"}}
                                 onClick={() => {
-                                    console.log("click");
                                     handleClickNavItem(item.key);
                                 }}
                             >
@@ -303,44 +309,22 @@ export default function Navbar(props: Props) {
                             justifyContent: "end",
                         }}
                     >
-                        {navItemsActions.map(item => {
-                            if (item.key === "cvAction")
-                                return (
-                                    <Link
-                                        key={item.key}
-                                        href="https://ramirofraysse.notion.site/Ramiro-Fraysse-Computer-Engineer-fa8303a305964f90b8cbae8e78f95040"
-                                        target="_blank"
-                                        style={{textDecoration: "none"}}
-                                    >
-                                        <Button
-                                            sx={{
-                                                color: "#fff",
-                                                textDecoration: "none",
-                                            }}
-                                        >
-                                            {(item?.text &&
-                                                item?.text[language]) ||
-                                                ""}
-                                        </Button>
-                                    </Link>
-                                );
-                            return (
-                                <Button
-                                    key={item.key}
-                                    sx={{color: "#fff"}}
-                                    onClick={() => handleClickAction(item.key)}
-                                >
-                                    {item.key === "themeAction" &&
-                                        item.icon &&
-                                        (theme === "dark" ? (
-                                            <item.icon.dark />
-                                        ) : (
-                                            <item.icon.light />
-                                        ))}
-                                    {(item?.text && item?.text[language]) || ""}
-                                </Button>
-                            );
-                        })}
+                        {navItemsActions.map(item => (
+                            <Button
+                                key={item.key}
+                                sx={{color: "#fff"}}
+                                onClick={() => handleClickAction(item.key)}
+                            >
+                                {item.key === "themeAction" &&
+                                    item.icon &&
+                                    (theme === "dark" ? (
+                                        <item.icon.dark />
+                                    ) : (
+                                        <item.icon.light />
+                                    ))}
+                                {(item?.text && item?.text[language]) || ""}
+                            </Button>
+                        ))}
                     </Box>
                 </Toolbar>
             </AppBar>

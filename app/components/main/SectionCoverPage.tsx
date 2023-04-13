@@ -11,25 +11,21 @@ import {
 } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
-import meImg from "../../../public/img/me.webp";
+import coverimage from "../../../public/img/coverpage.jpg";
 
 const DESCRIPTION = {
-    sp: "Hola! Mi nombre es Ramiro. Soy Ingeniero en Computación y mi fuerte es el desarrollo Frontend, aunque tambien he trabajado como Full stack. Llevo mas de 3 años trabajando en equipos de alta performance, desarrollando productos de alta calidad con agilidad y eficiencia. Soy una persona proactiva y un jugador de equipo apasionado por lo que hace.",
-    en: "Hi! My name is Ramiro. I am a computer engineer, and my strength is Frontend development, although I have also worked as a Full Stack developer. I have more than 3 years of experience participating in high-performance teams to develop quality products with agility and efficiency. I have a proactive mind and am a team player who is passionate about what I do.",
+    sp: "Construyendo equipos sólidos y exitosos: Soluciones de Recursos Humanos para tu empresa",
+    en: "Building Solid and Successful Teams: HR Solutions for Your Company",
 };
 
 export const CONTACT = [
     {
         icon: "https://icongr.am/entypo/linkedin-with-circle.svg?size=28&color=ffffff",
-        url: "https://www.linkedin.com/in/ramiro-fraysse-404991215/",
-    },
-    {
-        icon: "https://icongr.am/entypo/github.svg?size=28&color=ffffff",
-        url: "https://github.com/RamiroFraysse/",
+        url: "https://www.linkedin.com/company/universo-i/",
     },
     {
         icon: "https://icongr.am/entypo/instagram.svg?size=20&color=ffffff",
-        url: "https://www.instagram.com/ramirofraysse/",
+        url: "https://www.instagram.com/uvi/",
     },
 ];
 
@@ -85,17 +81,17 @@ function SectionCoverPage() {
                             justifyContent: "center",
                         }}
                     >
-                        <Typography component="div" variant="h5">
-                            Ramiro Fraysse
-                        </Typography>
-                        <Typography variant="subtitle1" component="div">
-                            {language === "sp"
-                                ? "Ingeniero en Computación"
-                                : "Computer Engineer"}
-                        </Typography>
-                        <Typography variant="subtitle1" component="div">
-                            Frontend Engineer
-                        </Typography>
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width={45}
+                            height={45}
+                        >
+                            <image
+                                href={"/icons/logo2.png"}
+                                width={45}
+                                height={45}
+                            />
+                        </svg>
                         <Box
                             sx={{
                                 display: "flex",
@@ -137,8 +133,8 @@ function SectionCoverPage() {
                     </Box>
                     <Box sx={{gridArea: "img", padding: "1em"}}>
                         <Image
-                            src={meImg}
-                            alt="imagen propia"
+                            src={coverimage}
+                            alt="descripcion"
                             style={{
                                 borderRadius: "30px",
                                 margin: "auto",

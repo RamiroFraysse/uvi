@@ -1,13 +1,11 @@
 "use client";
 import {Box, Typography} from "@mui/material";
-import SectionCoverPage from "./SectionCoverPage";
-import SectionEducation from "./SectionEducation";
-import SectionExperience from "./SectionExperience";
-import SectionProjects from "./SectionProjects";
+import SectionPlans from "./SectionPlans";
+import SectionServices from "./SectionServices";
+import SectionTestimonials from "./SectionTestimonials";
 import {useLanguage} from "@/app/store/language";
 
 import SectionContact from "./SectionContact";
-import Chat from "../Chat";
 
 function Main() {
     const {language, theme} = useLanguage(state => state);
@@ -26,30 +24,39 @@ function Main() {
             <Typography
                 variant="h5"
                 color={theme === "dark" ? "#fffff" : "#00000"}
-                id="Education"
+                id="Plans"
                 sx={{
                     paddingLeft: {xs: "32px", sm: "32px", md: "0px"},
                 }}
             >
-                {language === "sp" ? "Educación" : "Education"}
+                {language === "sp" ? "Planes" : "Plans"}
             </Typography>
-            <SectionEducation />
+            <SectionPlans />
             <Typography
                 variant="h5"
                 color={theme === "dark" ? "#fffff" : "#00000"}
-                id="Experience"
+                id="Services"
                 sx={{paddingLeft: {xs: "32px", sm: "32px", md: "0px"}}}
             >
-                {language === "sp" ? "Experiencia" : "Experience"}
+                {language === "sp" ? "Servicios" : "Services"}
             </Typography>
-            <SectionExperience />
+            <SectionServices />
+            <Typography
+                variant="h5"
+                color={theme === "dark" ? "#fffff" : "#00000"}
+                id="Recommendations"
+                sx={{paddingLeft: {xs: "32px", sm: "32px", md: "0px"}}}
+            >
+                {language === "sp" ? "Recomendaciones" : "Recommendations"}
+            </Typography>
+            <SectionTestimonials />
             <Typography
                 variant="h5"
                 color={theme === "dark" ? "#fffff" : "#00000"}
                 id="Contact"
                 sx={{paddingLeft: {xs: "32px", sm: "32px", md: "0px"}}}
             >
-                {language === "sp" ? "Contacto" : "Contact"}
+                {language === "sp" ? "Solicitar Servicio" : "Request Service"}
             </Typography>
             <SectionContact />
         </Box>
